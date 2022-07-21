@@ -1,0 +1,39 @@
+body {
+    background-color: slateblue;
+}
+
+#Welcome {
+color: white;
+text-align: center;
+font-family: Arial, Helvetica, sans-serif ;
+
+}
+
+#startButton {
+text-align: center;
+
+}
+
+#viewTimer{
+
+    text-align: end;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif ;
+}
+
+#title, #result {
+    text-align: center;
+    font-size: larger;
+    color: white ;
+    
+}
+
+#options {
+    text-align: center;
+
+}
+
+#countdown {
+    text-align: end;
+    font-size: large;
+}
