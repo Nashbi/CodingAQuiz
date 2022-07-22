@@ -6,6 +6,7 @@ var startButton = document.getElementById("startButton")
 var questionTitle = document.getElementById("title")
 var choiceContainer = document.getElementById("options")
 var timerEl = document.getElementById('timerValue');
+var myScore = document.getElementById('showScore')
 var score = 0;
 
 var result = {
@@ -51,8 +52,8 @@ var quizQuestions = [
 
     {
         question:"What is true about functions?",
-        answer: "You can't place a function within a function",
-        multipleChoices: ["Functions are soley used in HTML", "Functions are primarily produced in CSS" ,"functions can produce up to four addtional functions within itself ", "You can't place a function within a function"],
+        answer: "functions can be placed within a function",
+        multipleChoices: ["Functions are soley used in HTML", "Functions are primarily produced in CSS" ,"functions can produce up to four addtional functions within itself ", "functions can be placed within a function"],
     },
 
     {
@@ -116,6 +117,7 @@ let userAnswer = '';
 function start () {
    
     startButton.innerHTML = ""
+    document.getElementById("gameOver").innerHTML = ""
     document.getElementById("Welcome").innerHTML = ""
     countdown();
     questionDisplay();
@@ -133,12 +135,19 @@ const questionDisplay = () => {
         let questionPrompt = document.createElement('button');
         questionPrompt.textContent = currentQuestion;
         questionPrompt.setAttribute('value', currentQuestion);
+        // questionPrompt.style.boxShadow = 'black'
+        questionPrompt.style.fontSize = 'medium'
+        questionPrompt.style.fontFamily = 'gill sans'
+        questionPrompt.style.borderRadius = '8px'
+
         choiceContainer.append(questionPrompt);
 
         choiceContainer.addEventListener('click', checkAnswer,);
 
         
-        console.log("question ", questionIndex, ": ", currentQuestion);        
+        console.log("question ", questionIndex, ": ", currentQuestion);    
+        
+
     });
 }
 
@@ -154,15 +163,31 @@ function checkAnswer(selection) {
         return;   
     } else {        
         document.getElementById("result").innerHTML = result.incorrect;    
-        question++;
+        questionIndex++;
         questionDisplay();     
         return;
     }
 }
 
+function endGame () { 
+
+    questionTitle.innerHTML = ""
+    choiceContainer.innerHTML = ""
+    document.getElementById("gameOver").innerHTML = "Game Over...try again?"
+
+    let btn = document.createElement("button");
+    btn.textContent="Start Quiz";
+    btn.onclick = start 
+    startButton.append(btn)
+    myScore.textContent = 'Your Final Score Is  ' + score
+
+
+   
+}
+
 
 function countdown() {
-    var timeLeft = 90;
+    var timeLeft = 20;
     
     // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
     var timeInterval = setInterval(function () {
@@ -181,6 +206,7 @@ function countdown() {
         timerEl.textContent = '';
         // Use `clearInterval()` to stop the timer
         clearInterval(timeInterval);
+        endGame ();
         // Call the `displayMessage()` function
         // displayMessage();
         }
