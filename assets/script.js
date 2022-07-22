@@ -85,41 +85,16 @@ let userAnswer = '';
 
 // This is what happens when you click start
 
-
-// function start () {
-
-//     countdown();
-
-
-//     for (questionIndex = 0; questionIndex < quizQuestions.length; questionIndex++) {
-
-//         let currentQuestion = quizQuestions[questionIndex];
-//         questionTitle.textContent = currentQuestion.question;
-//         choiceContainer.innerHTML = " ";
-
-//         for (let index = 0; index <currentQuestion.multipleChoices.length; index++) {
-//             let choiceOption = currentQuestion.multipleChoices[index];
-//             // let btnList = document.createElement("li");
-//             let btns = document.createElement("button");
-//             btns.textContent = currentQuestion.multipleChoices[index];
-//             btns.setAttribute('value', currentQuestion.multipleChoices[index]);        
-    
-//             choiceContainer.append(btns);
-    
-//             // console.log('*****', btns.getAttribute('value'))
-//         }
-//         choiceContainer.addEventListener('click', checkAnswer, false);    
-//         console.log("question ", questionIndex, ": ", currentQuestion);
-//     }
-
 // }
 
 function start () {
-   
+   //We first remove the start button as well as the other local items on the screen
     startButton.innerHTML = ""
     document.getElementById("gameOver").innerHTML = ""
     document.getElementById("Welcome").innerHTML = ""
+    //run the countdown function
     countdown();
+    //run the display function
     questionDisplay();
 
 }
@@ -127,21 +102,22 @@ function start () {
 const questionDisplay = () => {
     let currentQuestion = quizQuestions[questionIndex];
     console.log(currentQuestion);
+    //creating the title
     questionTitle.textContent = currentQuestion.question;
     choiceContainer.innerHTML = ""
     currentQuestion.multipleChoices.forEach(currentQuestion => {
         console.log("should be first question", currentQuestion);
-
+        // creating the buttons
         let questionPrompt = document.createElement('button');
         questionPrompt.textContent = currentQuestion;
         questionPrompt.setAttribute('value', currentQuestion);
-        // questionPrompt.style.boxShadow = 'black'
+        // styling the buttons
         questionPrompt.style.fontSize = 'medium'
         questionPrompt.style.fontFamily = 'gill sans'
         questionPrompt.style.borderRadius = '8px'
-
+        //appending the buttons
         choiceContainer.append(questionPrompt);
-
+        //making the buttons clickable
         choiceContainer.addEventListener('click', checkAnswer,);
 
         
@@ -150,7 +126,7 @@ const questionDisplay = () => {
 
     });
 }
-
+//Our checkAnswer function tallies the points and reveals the notion of correct and incorrect
 function checkAnswer(selection) {
    // This function checks to see if the answers are correct. 
     // It documents an additional point everytime a question is correct.
@@ -168,7 +144,7 @@ function checkAnswer(selection) {
         return;
     }
 }
-
+//this is the function that's ran in all the ways the game can end
 function endGame () { 
 
     questionTitle.innerHTML = ""
@@ -185,7 +161,7 @@ function endGame () {
    
 }
 
-
+//this countdown is the timer
 function countdown() {
     var timeLeft = 20;
     
