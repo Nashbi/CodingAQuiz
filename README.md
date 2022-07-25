@@ -8,4 +8,4 @@
 <h3> The link to the deployed project <h3>
   <h4> https://nashbi.github.io/CodingAQuiz/ <h4>
     
-    <img width="721" alt="Screen Shot 2022-07-25 at 7 49 53 PM" src="https://user-images.githubusercontent.com/107282167/180893449-4a25d434-a345-41b0-864b-7563c8b4b830.png">
+https://user-images.githubusercontent.com/107282167/180893449-4a25d434-a345-41b0-864b-7563c8b4b830.png
