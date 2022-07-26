@@ -163,7 +163,7 @@ function endGame () {
 
 //this countdown is the timer
 function countdown() {
-    var timeLeft = 20;
+    var timeLeft = 60;
     
     // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
     var timeInterval = setInterval(function () {
